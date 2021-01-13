@@ -9,7 +9,9 @@ var topology = require('./topology'),
 module.exports = function preprocess(graph, options) {
     options = options || {};
     var weightFn = options.weightFn || function defaultWeightFn(a, b) {
-            return distance(point(a), point(b));
+            const pointA = [a[1], a[0]]
+            const pointB = [b[1], b[0]]
+            return distance(point(pointA), point(pointB));
         },
         topo;
 
